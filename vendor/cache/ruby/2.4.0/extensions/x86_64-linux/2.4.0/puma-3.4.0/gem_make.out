@@ -1,0 +1,51 @@
+current directory: /home/ahmed/sandbox/simple_cms/vendor/cache/ruby/2.4.0/gems/puma-3.4.0/ext/puma_http11
+/home/ahmed/.rvm/rubies/ruby-2.4.6/bin/ruby -I /home/ahmed/.rvm/rubies/ruby-2.4.6/lib/ruby/site_ruby/2.4.0 -r ./siteconf20200101-17346-1vta339.rb extconf.rb
+checking for BIO_read() in -lcrypto... yes
+checking for SSL_CTX_new() in -lssl... yes
+checking for openssl/bio.h... yes
+creating Makefile
+
+current directory: /home/ahmed/sandbox/simple_cms/vendor/cache/ruby/2.4.0/gems/puma-3.4.0/ext/puma_http11
+make "DESTDIR=" clean
+
+current directory: /home/ahmed/sandbox/simple_cms/vendor/cache/ruby/2.4.0/gems/puma-3.4.0/ext/puma_http11
+make "DESTDIR="
+compiling http11_parser.c
+In file included from ext/http11/http11_parser.rl:7:0:
+ext/http11/http11_parser.rl: In function ‘puma_parser_execute’:
+ext/http11/http11_parser.rl:111:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+ext/http11/http11_parser.rl: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+compiling io_buffer.c
+compiling mini_ssl.c
+mini_ssl.c: In function ‘get_dh1024’:
+mini_ssl.c:90:5: error: dereferencing pointer to incomplete type ‘DH {aka struct dh_st}’
+   dh->p = BN_bin2bn(dh1024_p, sizeof(dh1024_p), NULL);
+     ^~
+mini_ssl.c: In function ‘engine_init_server’:
+mini_ssl.c:161:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+   DH *dh = get_dh1024();
+   ^~
+mini_ssl.c:165:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+   EC_KEY *ecdh = EC_KEY_new_by_curve_name(NID_secp521r1);
+   ^~~~~~
+mini_ssl.c: In function ‘engine_init_client’:
+mini_ssl.c:192:3: warning: ‘DTLSv1_method’ is deprecated [-Wdeprecated-declarations]
+   conn->ctx = SSL_CTX_new(DTLSv1_method());
+   ^~~~
+In file included from /usr/include/openssl/e_os2.h:13:0,
+                 from /usr/include/openssl/bio.h:13,
+                 from mini_ssl.c:14:
+/usr/include/openssl/ssl.h:1870:1: note: declared here
+ DEPRECATEDIN_1_1_0(__owur const SSL_METHOD *DTLSv1_method(void)) /* DTLSv1.0 */
+ ^
+mini_ssl.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+Makefile:242: recipe for target 'mini_ssl.o' failed
+make: *** [mini_ssl.o] Error 1
+
+make failed, exit code 2
